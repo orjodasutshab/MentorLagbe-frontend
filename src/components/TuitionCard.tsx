@@ -7,7 +7,7 @@ import TuitionBanner from "./TuitionBanner";
 
 export default function TuitionCard({ tuition }: { tuition: Tuition }) {
   return (
-    <article className="card group flex h-full flex-col overflow-hidden transition-transform duration-200 hover:-translate-y-1">
+    <article className="card card-hover group flex h-full flex-col overflow-hidden hover:-translate-y-1">
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface">
         <TuitionBanner image={tuition.bannerImage} subject={tuition.subject} />
         <span className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[0.7rem] font-bold ${tuition.mode === "Online" ? "bg-[#dbeafe] text-[#1e40af]" : "bg-[#fef3c7] text-[#92400e]"}`}>

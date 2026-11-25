@@ -66,7 +66,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
     <div className="flex h-full flex-col">
       <div className={`flex h-16 items-center border-b border-border ${compact ? "justify-center" : "px-5"}`}>
         {compact ? (
-          <Link href="/" aria-label="Home" className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-fg">
+          <Link href="/" aria-label="Home" className="flex h-9 w-9 items-center justify-center rounded-xl text-white" style={{ background: "linear-gradient(135deg, var(--grad-a), var(--grad-b))" }}>
             <Icon name="cap" size={20} />
           </Link>
         ) : (
@@ -81,7 +81,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
             href={item.href}
             title={item.label}
             className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${compact ? "justify-center" : ""} ${
-              active(item) ? "bg-primary text-primary-fg" : "text-muted hover:bg-surface hover:text-foreground"
+              active(item) ? "bg-primary-soft text-primary" : "text-muted hover:bg-surface hover:text-foreground"
             }`}
           >
             <Icon name={item.icon} size={19} />

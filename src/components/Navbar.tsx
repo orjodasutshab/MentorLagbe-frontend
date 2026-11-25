@@ -24,6 +24,7 @@ export default function Navbar() {
   const { user, loading, signOut } = useAuth();
   const [open, setOpen] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [announce, setAnnounce] = useState(true);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,7 +49,8 @@ export default function Navbar() {
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+    <>
+    <header className="sticky top-0 z-40 border-b border-border bg-card/95 shadow-[0_1px_12px_-4px_rgba(0,0,0,0.25)] backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between gap-4">
         <Logo />
 
@@ -162,5 +164,26 @@ export default function Navbar() {
         </div>
       ) : null}
     </header>
+
+    {announce ? (
+      <div className="border-b border-border bg-surface">
+        <div className="container-x flex items-center justify-between gap-3 py-2 text-xs sm:text-sm">
+          <p className="flex min-w-0 items-center gap-2 text-muted">
+            <Icon name="zap" size={15} className="shrink-0 text-primary" />
+            <span className="truncate">
+              <span className="font-bold text-foreground">2026 Exam &amp; Admission Prep Cohorts Open:</span>{" "}
+              <span className="hidden sm:inline">Verified tutors have published new Physics, Higher Math, IELTS, and ICT tracks for this term.</span>
+            </span>
+          </p>
+          <div className="flex shrink-0 items-center gap-3">
+            <Link href="/tuitions" className="font-bold text-primary hover:underline">Explore →</Link>
+            <button onClick={() => setAnnounce(false)} aria-label="Dismiss announcement" className="text-muted hover:text-foreground">
+              <Icon name="close" size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+    ) : null}
+    </>
   );
 }

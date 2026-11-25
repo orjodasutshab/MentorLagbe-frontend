@@ -8,12 +8,6 @@ import { Icon } from "@/components/icons";
 import { Spinner } from "@/components/ui";
 import { useAuth } from "@/lib/auth";
 
-const DEMO = [
-  { label: "Admin", email: "admin@mentorlagbe.com", password: "Admin@1234" },
-  { label: "Tutor", email: "tutor@mentorlagbe.com", password: "Tutor@1234" },
-  { label: "Student", email: "student@mentorlagbe.com", password: "Student@1234" },
-];
-
 function safeNext(): string {
   if (typeof window === "undefined") return "/dashboard";
   const next = new URLSearchParams(window.location.search).get("next");
@@ -81,17 +75,6 @@ export default function SignInPage() {
             New to MentorLagbe? <Link href="/sign-up" className="font-bold text-primary">Create an account</Link>
           </p>
         </form>
-
-        <div className="mt-6 rounded-2xl border border-dashed border-border p-4">
-          <p className="mb-3 text-center text-xs font-bold uppercase tracking-wider text-muted">Quick demo login</p>
-          <div className="grid grid-cols-3 gap-2">
-            {DEMO.map((d) => (
-              <button key={d.label} type="button" className="btn btn-outline btn-sm" onClick={() => { setEmail(d.email); setPassword(d.password); setErrors({}); }}>
-                {d.label}
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
