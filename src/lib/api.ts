@@ -1,4 +1,7 @@
-const RAW_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+// In production, fall back to the deployed API when NEXT_PUBLIC_API_URL is not set.
+const DEFAULT_API =
+  process.env.NODE_ENV === "production" ? "https://mentorlagbe-bd.vercel.app/api" : "http://localhost:5000/api";
+const RAW_BASE = process.env.NEXT_PUBLIC_API_URL || DEFAULT_API;
 export const API_BASE = RAW_BASE.replace(/\/+$/, "");
 export const API_ORIGIN = API_BASE.replace(/\/api$/, "");
 
