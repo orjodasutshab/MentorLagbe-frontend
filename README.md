@@ -4,7 +4,7 @@ MentorLagbe connects **students** with qualified **tutors** for subject-wise tui
 Tutors post listings, admins moderate them, students search and apply, and both tutors and students can upgrade to a
 **Pro plan** through Stripe.
 
-- **Live site:** https://YOUR-FRONTEND.vercel.app
+- **Live site:** https://mentorlagbebd.vercel.app/
 - **Server API:** https://mentorlagbe-bd.vercel.app
 - **Server repo:** https://github.com/orjodasutshab/MentorLagbe-backend
 
